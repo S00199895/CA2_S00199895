@@ -20,6 +20,11 @@ namespace CA2_S00199895
     /// </summary>
     public partial class MainWindow : Window
     {
+        FullTimeEmployee fullTime1 = new FullTimeEmployee("Mr", "Burnham", 40000);
+        FullTimeEmployee fullTime2 = new FullTimeEmployee("Hanzo", "Hasashi", 55000);
+
+        PartTimeEmployee partTime1 = new PartTimeEmployee("Bigby", "Wolf", 12, 25);
+        PartTimeEmployee partTime2 = new PartTimeEmployee("Jack", "Morrisson", 15, 30);
         public MainWindow()
         {
             InitializeComponent();
