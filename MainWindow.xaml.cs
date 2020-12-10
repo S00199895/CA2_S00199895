@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -28,6 +29,18 @@ namespace CA2_S00199895
         public MainWindow()
         {
             InitializeComponent();
+            LbxAddEmployees();        
+        }
+
+        public void LbxAddEmployees()
+        {
+            ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+            employees.Add(fullTime1);
+            employees.Add(fullTime2);
+            employees.Add(partTime1);
+            employees.Add(partTime2);
+
+            lbx.ItemsSource = employees;
         }
     }
 }
