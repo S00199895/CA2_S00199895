@@ -40,6 +40,8 @@ namespace CA2_S00199895
             employees.Add(partTime1);
             employees.Add(partTime2);
 
+            employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.LastName));
+
             lbx.ItemsSource = employees;
         }
     }
