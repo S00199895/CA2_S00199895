@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <ListBox x:Name="lbx" HorizontalAlignment="Left" Height="281" Margin="33,128,0,0" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.501,0.626" Grid.Column="1"/>
         <CheckBox x:Name="checkFT" Content="Full-Time" HorizontalAlignment="Left" Margin="33,75,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="checkFT_Checked"/>
-        <CheckBox x:Name="checkPT" Content="Part-Time" HorizontalAlignment="Left" Margin="153,75,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="checkPT" Content="Part-Time" HorizontalAlignment="Left" Margin="153,75,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="checkPT_Checked"/>
         <TextBlock HorizontalAlignment="Left" Margin="41,107,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="70,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="70,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>

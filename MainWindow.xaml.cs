@@ -52,7 +52,36 @@ namespace CA2_S00199895
 
         private void checkFT_Checked(object sender, RoutedEventArgs e)
         {
+            lbx.ItemsSource = null;
 
+            ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
+
+            foreach (Employee emp in employees)
+            {
+                if (emp is FullTimeEmployee)
+                {
+                    filteredEmployees.Add(emp);
+                }
+            }
+
+            lbx.ItemsSource = filteredEmployees;
+        }
+
+        private void checkPT_Checked(object sender, RoutedEventArgs e)
+        {
+            lbx.ItemsSource = null;
+
+            ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
+
+            foreach (Employee emp in employees)
+            {
+                if (emp is PartTimeEmployee)
+                {
+                    filteredEmployees.Add(emp);
+                }
+            }
+
+            lbx.ItemsSource = filteredEmployees;
         }
     }
 }
