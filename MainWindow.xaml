@@ -8,9 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ListBox x:Name="lbx" HorizontalAlignment="Left" Height="281" Margin="41,128,0,0" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.501,0.626"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="41,75,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="161,75,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="63,95,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkFT" Content="Full-Time" HorizontalAlignment="Left" Margin="41,75,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkPT" Content="Part-Time" HorizontalAlignment="Left" Margin="161,75,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,107,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="403,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="403,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="403,251,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>

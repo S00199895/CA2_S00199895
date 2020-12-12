@@ -20,5 +20,11 @@
         {
             return HourlyRate * (decimal)HoursWorked;
         }
+
+        public override string ToString()
+        {
+            return $"{LastName.ToUpper()}, {FirstName} - Part Time";
+        }
+
     }
 }

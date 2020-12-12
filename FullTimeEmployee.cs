@@ -24,5 +24,9 @@ namespace CA2_S00199895
         {
             return Salary / 12;
         }
+        public override string ToString()
+        {
+            return $"{LastName.ToUpper()}, {FirstName} - Full Time";
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace CA2_S00199895
         public abstract string LastName { get; set; }
 
         public abstract decimal CalculateMonthlyPay();
+
+        public abstract override string ToString();
     }
 }
