@@ -26,15 +26,20 @@ namespace CA2_S00199895
 
         PartTimeEmployee partTime1 = new PartTimeEmployee("Bigby", "Wolf", 12, 25);
         PartTimeEmployee partTime2 = new PartTimeEmployee("Jack", "Morrisson", 15, 30);
+
+        ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+        
         public MainWindow()
         {
             InitializeComponent();
-            LbxAddEmployees();        
+        }
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            LbxAddEmployees();
         }
 
         public void LbxAddEmployees()
         {
-            ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
             employees.Add(fullTime1);
             employees.Add(fullTime2);
             employees.Add(partTime1);
@@ -43,6 +48,11 @@ namespace CA2_S00199895
             employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.LastName));
 
             lbx.ItemsSource = employees;
+        }
+
+        private void checkFT_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
