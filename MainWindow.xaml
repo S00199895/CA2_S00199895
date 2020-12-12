@@ -13,24 +13,29 @@
             <ColumnDefinition Width="14*"/>
             <ColumnDefinition Width="459*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="lbx" HorizontalAlignment="Left" Height="281" Margin="33,128,0,0" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.501,0.626" Grid.Column="1"/>
+        <ListBox x:Name="lbx" HorizontalAlignment="Left" Height="281" Margin="33,128,0,0" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.501,0.626" Grid.Column="1" SelectionChanged="lbx_SelectionChanged"/>
         <CheckBox x:Name="checkFT" Content="Full-Time" HorizontalAlignment="Left" Margin="33,75,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="checkFT_Checked"/>
         <CheckBox x:Name="checkPT" Content="Part-Time" HorizontalAlignment="Left" Margin="153,75,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="checkPT_Checked"/>
         <TextBlock HorizontalAlignment="Left" Margin="41,107,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="70,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="70,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="70,251,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="70,299,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="70,350,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-        <StackPanel HorizontalAlignment="Left" Height="44" Margin="70,202,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3">
-            <RadioButton Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton Content="RadioButton"/>
+        <TextBox x:Name="tbx_fName" HorizontalAlignment="Left" Height="23" Margin="147,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="3" SpellCheck.IsEnabled="True"/>
+        <TextBox x:Name="tbx_lName" HorizontalAlignment="Left" Height="23" Margin="147,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+        <TextBox x:Name="tbx_Salary" HorizontalAlignment="Left" Height="23" Margin="147,271,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+        <TextBox x:Name="tbx_hoursWorked" HorizontalAlignment="Left" Height="23" Margin="147,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+        <TextBox x:Name="tbx_rate" HorizontalAlignment="Left" Height="23" Margin="147,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="3" RenderTransformOrigin="0.5,0.5"/>
+        <StackPanel HorizontalAlignment="Left" Height="44" Margin="147,202,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3">
+            <RadioButton x:Name="radio_FT" Content="FT" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <RadioButton x:Name="radio_PT" Content="PT"/>
         </StackPanel>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="331,114,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="331,156,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="331,202,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="331,251,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="70,395,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3"/>
+        <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="331,113,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="btn_clear_Click"/>
+        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Margin="331,156,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
+        <Button x:Name="btn_update" Content="Update" HorizontalAlignment="Left" Margin="331,202,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
+        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="331,251,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="btn_delete_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,113,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,158,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,271,0,0" TextWrapping="Wrap" Text="Salary" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,318,0,0" TextWrapping="Wrap" Text="Hours Worked" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,367,0,0" TextWrapping="Wrap" Text="Hourly Rate" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3"/>
+        <TextBlock x:Name="tblk_monthlyPay" HorizontalAlignment="Left" Margin="117,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-2.66,0.454" Height="14" Width="120" Grid.Column="3" Text="Monthly Pay : "/>
 
     </Grid>
 </Window>

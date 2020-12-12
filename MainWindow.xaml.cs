@@ -83,5 +83,40 @@ namespace CA2_S00199895
 
             lbx.ItemsSource = filteredEmployees;
         }
+
+        private void lbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Employee selectedEmp = (Employee)lbx.SelectedItem;
+
+            tbx_fName.Text = selectedEmp.FirstName;
+            tbx_lName.Text = selectedEmp.LastName;
+
+            //// K! if (selectedEmp is FullTimeEmployee)
+            ////    //tbx_Salary = selectedEmp.Salary;
+            //else
+            //{
+            //    tbx_rate = selectedEmp.HourlyRate;
+            //    tbx_hoursWorked = selectedEmp.HoursWorked;
+            //}
+        }
+
+        private void btn_clear_Click(object sender, RoutedEventArgs e)
+        {
+            tbx_fName.Clear();
+            tbx_lName.Clear();
+            tbx_Salary.Clear();
+            tbx_hoursWorked.Clear();
+            tbx_rate.Clear();
+
+            radio_FT.IsChecked = false;
+            radio_PT.IsChecked = false;
+        }
+
+        private void btn_delete_Click(object sender, RoutedEventArgs e)
+        {
+            Employee empToDelete = (Employee)lbx.SelectedItem;
+
+            employees.Remove(empToDelete);
+        }
     }
 }
