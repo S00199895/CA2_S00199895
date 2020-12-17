@@ -153,5 +153,25 @@ namespace CA2_S00199895
             }
 
         }
+
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+            Employee toUpdate = (Employee)lbx.SelectedItem;
+
+            toUpdate.FirstName = tbx_fName.Text;
+            toUpdate.LastName = tbx_lName.Text;
+
+            if (radio_FT.IsChecked == true)
+            {
+                toUpdate.Salary = decimal.Parse(tbx_Salary.Text);
+            }
+            else if (radio_PT.IsChecked == true)
+            {
+                toUpdate.HoursWorked = double.Parse(tbx_hoursWorked.Text);
+                toUpdate.HourlyRate = decimal.Parse(tbx_rate.Text);
+            }
+            employees.Remove((Employee)lbx.SelectedItem);
+            employees.Add(toUpdate);
+        }
     }
 }
