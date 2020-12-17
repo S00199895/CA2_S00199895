@@ -33,10 +33,6 @@ namespace CA2_S00199895
         {
             InitializeComponent();
         }
-        private void Window_Activated(object sender, EventArgs e)
-        {
-            LbxAddEmployees();
-        }
 
         public void LbxAddEmployees()
         {
@@ -119,6 +115,7 @@ namespace CA2_S00199895
             tbx_Salary.Clear();
             tbx_hoursWorked.Clear();
             tbx_rate.Clear();
+            tblk_monthlyPay.Text = "Monthly Pay : ";
 
             radio_FT.IsChecked = false;
             radio_PT.IsChecked = false;
@@ -134,24 +131,31 @@ namespace CA2_S00199895
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             Employee toAdd;
-
-            if (radio_FT.IsChecked == true)
+            try
             {
-                toAdd = new FullTimeEmployee();
-                toAdd.FirstName = tbx_fName.Text;
-                toAdd.LastName = tbx_lName.Text;
-                toAdd.Salary = decimal.Parse(tbx_Salary.Text);
-                employees.Add(toAdd);
+                if (radio_FT.IsChecked == true)
+                {
+                    toAdd = new FullTimeEmployee();
+                    toAdd.FirstName = tbx_fName.Text;
+                    toAdd.LastName = tbx_lName.Text;
+                    toAdd.Salary = decimal.Parse(tbx_Salary.Text);
+                    employees.Add(toAdd);
+                }
+                else if (radio_PT.IsChecked == true)
+                {
+                    toAdd = new PartTimeEmployee();
+                    toAdd.FirstName = tbx_fName.Text;
+                    toAdd.LastName = tbx_lName.Text;
+                    toAdd.HourlyRate = decimal.Parse(tbx_rate.Text);
+                    toAdd.HoursWorked = double.Parse(tbx_hoursWorked.Text);
+                    employees.Add(toAdd);
+                }
             }
-            else if (radio_PT.IsChecked == true)
+            catch (FormatException fE)
             {
-                toAdd = new PartTimeEmployee();
-                toAdd.FirstName = tbx_fName.Text;
-                toAdd.LastName = tbx_lName.Text;
-                toAdd.HourlyRate = decimal.Parse(tbx_rate.Text);
-                toAdd.HoursWorked = double.Parse(tbx_hoursWorked.Text);
-                employees.Add(toAdd);
+                MessageBox.Show(fE.Message);
             }
+            employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.LastName));
 
         }
 
@@ -165,6 +169,9 @@ namespace CA2_S00199895
             if (radio_FT.IsChecked == true)
             {
                 toUpdate.Salary = decimal.Parse(tbx_Salary.Text);
+                //Tried to set up casts to make
+                //a FullTimeEmployee a PartTimeEmployee here
+                //But couldn't figure it out
             }
             else if (radio_PT.IsChecked == true)
             {
@@ -173,6 +180,22 @@ namespace CA2_S00199895
             }
             employees.Remove((Employee)lbx.SelectedItem);
             employees.Add(toUpdate);
+            employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.LastName));
+        }
+
+        private void checkPT_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lbx.ItemsSource = employees;
+        }
+
+        private void checkFT_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lbx.ItemsSource = employees;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LbxAddEmployees();
         }
     }
 }
