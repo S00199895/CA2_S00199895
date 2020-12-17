@@ -86,18 +86,29 @@ namespace CA2_S00199895
 
         private void lbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employee selectedEmp = (Employee)lbx.SelectedItem;
+            try
+            {
+                Employee selectedEmp = (Employee)lbx.SelectedItem;
 
-            tbx_fName.Text = selectedEmp.FirstName;
-            tbx_lName.Text = selectedEmp.LastName;
+                tbx_fName.Text = selectedEmp.FirstName;
+                tbx_lName.Text = selectedEmp.LastName;
 
-            //// K! if (selectedEmp is FullTimeEmployee)
-            ////    //tbx_Salary = selectedEmp.Salary;
-            //else
-            //{
-            //    tbx_rate = selectedEmp.HourlyRate;
-            //    tbx_hoursWorked = selectedEmp.HoursWorked;
-            //}
+                if (selectedEmp is FullTimeEmployee)
+                {
+                    tbx_Salary.Text = selectedEmp.Salary.ToString();
+                }
+                else if (selectedEmp is PartTimeEmployee)
+                {
+                    tbx_rate.Text = selectedEmp.HourlyRate.ToString();
+                    tbx_hoursWorked.Text = selectedEmp.HoursWorked.ToString();
+                }
+
+                tblk_monthlyPay.Text = selectedEmp.CalculateMonthlyPay().ToString();
+            }
+            catch (NullReferenceException)
+            {
+
+            }
         }
 
         private void btn_clear_Click(object sender, RoutedEventArgs e)
@@ -117,6 +128,30 @@ namespace CA2_S00199895
             Employee empToDelete = (Employee)lbx.SelectedItem;
 
             employees.Remove(empToDelete);
+        }
+
+        private void btn_add_Click(object sender, RoutedEventArgs e)
+        {
+            Employee toAdd;
+
+            if (radio_FT.IsChecked == true)
+            {
+                toAdd = new FullTimeEmployee();
+                toAdd.FirstName = tbx_fName.Text;
+                toAdd.LastName = tbx_lName.Text;
+                toAdd.Salary = decimal.Parse(tbx_Salary.Text);
+                employees.Add(toAdd);
+            }
+            else if (radio_PT.IsChecked == true)
+            {
+                toAdd = new PartTimeEmployee();
+                toAdd.FirstName = tbx_fName.Text;
+                toAdd.LastName = tbx_lName.Text;
+                toAdd.HourlyRate = decimal.Parse(tbx_rate.Text);
+                toAdd.HoursWorked = double.Parse(tbx_hoursWorked.Text);
+                employees.Add(toAdd);
+            }
+
         }
     }
 }
