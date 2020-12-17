@@ -4,8 +4,6 @@
     {
         public override string FirstName { get; set; }
         public override string LastName { get; set; }
-        public decimal HourlyRate { get; set; }
-        public double HoursWorked { get; set; }
 
         public PartTimeEmployee(string fName, string lName, decimal rate, double hours)
         {

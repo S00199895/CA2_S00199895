@@ -86,6 +86,7 @@ namespace CA2_S00199895
 
         private void lbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btn_clear_Click(sender, e);
             try
             {
                 Employee selectedEmp = (Employee)lbx.SelectedItem;
