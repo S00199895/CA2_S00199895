@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace CA2_S00199895
 {
-    class FullTimeEmployee : Employee
+    class FullTimeEmployee : Employee   //Derives from the abstract class employee
     {
+        //Properties
         public override string FirstName { get; set; }
         public override string LastName { get; set; }
 
+        //Constructors linked
         public FullTimeEmployee(string fName, string lName, decimal sal)
         {
             FirstName = fName;
@@ -19,6 +21,8 @@ namespace CA2_S00199895
         }
         public FullTimeEmployee(string fName, string lName) : this(fName, lName, 0) { }
         public FullTimeEmployee() : this("Unknown", "Unknown") { }
+
+        //Methods
         public override decimal CalculateMonthlyPay()
         {
             return Salary / 12;
